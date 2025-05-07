@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "portals3.h": "c",
+        "nal_types.h": "c",
+        "cstdint": "c",
+        "authr_debug.h": "c",
+        "errno.h": "c",
+        "types.h": "c",
+        "assert.h": "c",
+        "math.h": "c",
+        "authr_client_sync.h": "c",
+        "logger.h": "c",
+        "signal.h": "c",
+        "fprint_types.h": "c",
+        "unistd.h": "c",
+        "xdr_types.h": "c",
+        "fuse-callbacks.h": "c",
+        "logger_opts.h": "c",
+        "rpc_client.h": "c"
+    }
+}

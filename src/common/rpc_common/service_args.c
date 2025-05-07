@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "../../../../../src/common/rpc_common/service_args.h"
+#include "./service_args.h"
 
 bool_t
 xdr_lwfs_get_service_args (XDR *xdrs, lwfs_get_service_args *objp)

@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "../../../../../src/common/naming_common/naming_args.h"
+#include "./naming_args.h"
 
 bool_t
 xdr_lwfs_create_namespace_args (XDR *xdrs, lwfs_create_namespace_args *objp)

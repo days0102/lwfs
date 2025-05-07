@@ -425,7 +425,7 @@ int main(int argc, char *argv[])
     }
 
     /* initialize RPC */
-    lwfs_ptl_init(PTL_IFACE_DEFAULT, 128+myrank);
+    lwfs_ptl_init(PTL_NALTYPE_UTCP, 128+myrank);
     lwfs_rpc_init(LWFS_RPC_PTL, LWFS_RPC_XDR);
 
     /* initialize the service descriptions on node 0 */

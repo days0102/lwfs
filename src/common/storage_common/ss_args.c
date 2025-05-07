@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "../../../../../src/common/storage_common/ss_args.h"
+#include "./ss_args.h"
 
 bool_t
 xdr_ss_create_obj_args (XDR *xdrs, ss_create_obj_args *objp)

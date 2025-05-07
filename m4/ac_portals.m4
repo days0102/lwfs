@@ -84,7 +84,7 @@ dnl Look for -lportals
 if test x"$ac_portals_lib_ok" = xno -a x$ac_portals_hdr_ok = xyes; then
     save_LIBS=$LIBS;
     LIBS=""
-    AC_SEARCH_LIBS(PtlInit,[portals],
+    AC_SEARCH_LIBS(PtlInit,[portals3],
 	    [ac_portals_lib_ok=yes],
 	    [ac_portals_lib_ok=no],
 	    [$save_LIBS $PTHREAD_LDFLAGS $PTHREAD_LIBS])

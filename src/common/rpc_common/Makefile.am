@@ -15,9 +15,7 @@ librpc_common_la_SOURCES += rpc_xdr.c
 librpc_common_la_SOURCES += rpc_common.c
 librpc_common_la_SOURCES += rpc_debug.c
 librpc_common_la_SOURCES += ptl_wrap.c
-if NEED_LWFS_XDR_SIZEOF
-librpc_common_la_SOURCES += xdr_sizeof.c
-endif
+
 
 
 librpc_common_la_LIBADD = $(PORTALS_LIBS)

@@ -3,7 +3,7 @@ METASOURCES = AUTO
 INCLUDES  = $(all_includes)
 INCLUDES += -I$(top_srcdir)/src
 
-AM_CPPFLAGS = 
+AM_CPPFLAGS = -fPIC
 
 AM_CFLAGS = -I$(top_srcdir)/src
 

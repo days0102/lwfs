@@ -28,7 +28,6 @@ AC_ARG_WITH(pablo,
 	[PABLO_LDFLAGS="-L$withval/lib"; 
 	 PABLO_CPPFLAGS="-I$withval/include";])
 
-AC_LANG_PUSH([C++])
 
 if test -z "${HAVE_PABLO_TRUE}"; then
 	AC_CHECK_HEADER(Attributes.h, 
@@ -57,7 +56,6 @@ AC_SUBST(PABLO_LIBS)
 AC_SUBST(PABLO_LDFLAGS)
 AC_SUBST(PABLO_CPPFLAGS)
 
-AC_LANG_POP([C++])
 
 # Finally, execute ACTION-IF-FOUND/ACTION-IF-NOT-FOUND:
 if test -z "${HAVE_PABLO_TRUE}"; then

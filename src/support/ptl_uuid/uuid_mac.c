@@ -119,7 +119,7 @@ int mac_address(unsigned char *data_ptr, size_t data_len)
 
 	    /* The Portals 3.3 reference guide says that multiple calls to 
 	     *  PtlNIInit should return a valid ni_handle */
-	    PtlNIInit(PTL_IFACE_DEFAULT, PTL_PID_ANY, &desired, &actual, &ni_handle); 
+	    PtlNIInit(((ptl_interface_t)0xffffffff), PTL_PID_ANY, &desired, &actual, &ni_handle); 
 
 	    /* Get the ID of this process */
 	    PtlGetId(ni_handle, &process_id); 

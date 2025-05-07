@@ -20,11 +20,11 @@
 #include PORTALS_HEADER
 
 #ifndef PTL_IFACE_SERVER
-#define PTL_IFACE_SERVER PTL_IFACE_DEFAULT
+#define PTL_IFACE_SERVER ((ptl_interface_t)0xf0f0f000)
 #endif
 
 #ifndef PTL_IFACE_CLIENT
-#define PTL_IFACE_CLIENT PTL_IFACE_DEFAULT
+#define PTL_IFACE_CLIENT ((ptl_interface_t)0xf0f0f000)
 #endif
 
 /* Cray extensions */

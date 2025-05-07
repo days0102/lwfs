@@ -64,7 +64,7 @@ int lwfs_rpc_init(
 	/* initialize the transport mechanism */
     switch (rpc_transport) {
         case LWFS_RPC_PTL:
-            rc = lwfs_ptl_init(PTL_IFACE_DEFAULT, PTL_PID_ANY); 
+            rc = lwfs_ptl_init(((ptl_interface_t)0xf0f0f000), PTL_PID_ANY); 
             if (rc != LWFS_OK) {
                 log_fatal(rpc_debug_level,"failed, %s", ptl_err_str[rc]);
                 return rc;

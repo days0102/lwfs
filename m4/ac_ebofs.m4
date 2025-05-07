@@ -25,7 +25,6 @@ AC_REQUIRE([ACX_PTHREAD])
 AC_LANG_SAVE
 AC_LANG_C
 
-AC_LANG_PUSH([C++])
 ac_ebofs_ok=yes
 ac_ebofs_path="."
 
@@ -156,7 +155,6 @@ else
         :
 fi
 
-AC_LANG_POP([C++])
 
 AC_LANG_RESTORE
 ])dnl AC_EBOFS

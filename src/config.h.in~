@@ -1,34 +1,10 @@
 /* src/config.h.in.  Generated from configure.ac by autoheader.  */
 
-/* Predefined possible va_copy() implementation (id: ASP) */
-#define __VA_COPY_USE_ASP(d, s) do { *(d) = *(s); } while (0)
-
-/* Predefined possible va_copy() implementation (id: ASS) */
-#define __VA_COPY_USE_ASS(d, s) do { (d) = (s); } while (0)
-
 /* "Path to db.h" */
 #undef BDB_HEADER
 
 /* Darwin's rpcgen is broken in several painful ways */
 #undef BROKEN_DARWIN_RPCGEN
-
-/* Predefined possible va_copy() implementation (id: C99) */
-#define __VA_COPY_USE_C99(d, s) va_copy((d), (s))
-
-/* Predefined possible va_copy() implementation (id: CPP) */
-#define __VA_COPY_USE_CPP(d, s) memcpy((void *)(d), (void *)(s)), sizeof(*(s))
-
-/* Predefined possible va_copy() implementation (id: CPS) */
-#define __VA_COPY_USE_CPS(d, s) memcpy((void *)&(d), (void *)&(s)), sizeof((s))
-
-/* Predefined possible va_copy() implementation (id: GCB) */
-#define __VA_COPY_USE_GCB(d, s) __builtin_va_copy((d), (s))
-
-/* Predefined possible va_copy() implementation (id: GCH) */
-#define __VA_COPY_USE_GCH(d, s) __va_copy((d), (s))
-
-/* Predefined possible va_copy() implementation (id: GCM) */
-#define __VA_COPY_USE_GCM(d, s) VA_COPY((d), (s))
 
 /* Define to 1 if you have the <argp.h> header file. */
 #undef HAVE_ARGP_H
@@ -72,7 +48,7 @@
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
-/* Define to 1 if you have the `nsl' library (-lnsl). */
+/* Define if you have the nsl library */
 #undef HAVE_LIBNSL
 
 /* Define to 1 if you have the `socket' library (-lsocket). */
@@ -80,6 +56,9 @@
 
 /* Define if you have the libsysio. */
 #undef HAVE_LIBSYSIO
+
+/* Define if you have the tirpc library */
+#undef HAVE_LIBTIRPC
 
 /* Define to 1 if the system has the type `long double'. */
 #undef HAVE_LONG_DOUBLE
@@ -89,9 +68,6 @@
 
 /* Define to 1 if you have the <malloc.h> header file. */
 #undef HAVE_MALLOC_H
-
-/* Define to 1 if you have the <memory.h> header file. */
-#undef HAVE_MEMORY_H
 
 /* Define to 1 if you have the `nanosleep' function. */
 #undef HAVE_NANOSLEEP
@@ -153,6 +129,9 @@
 /* Define to 1 if you have the <stdint.h> header file. */
 #undef HAVE_STDINT_H
 
+/* Define to 1 if you have the <stdio.h> header file. */
+#undef HAVE_STDIO_H
+
 /* Define to 1 if you have the <stdlib.h> header file. */
 #undef HAVE_STDLIB_H
 
@@ -192,12 +171,11 @@
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
 
-/* Define if va_copy() macro exists (and no fallback implementation is
-   required) */
-#undef HAVE_VA_COPY
-
 /* Define to 1 if you have the `xdr_sizeof' function. */
 #undef HAVE_XDR_SIZEOF
+
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
+#undef LT_OBJDIR
 
 /* Name of package */
 #undef PACKAGE
@@ -213,6 +191,9 @@
 
 /* Define to the one symbol short name of this package. */
 #undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
 
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
@@ -263,7 +244,9 @@
 /* The size of `void*', as computed by sizeof. */
 #undef SIZEOF_VOIDP
 
-/* Define to 1 if you have the ANSI C header files. */
+/* Define to 1 if all of the C90 standard headers exist (not just the ones
+   required in a freestanding environment). This macro is provided for
+   backward compatibility; new code need not use it. */
 #undef STDC_HEADERS
 
 /* Version number of package */
@@ -286,12 +269,3 @@
 
 /* whether to build PHP bindings to C API */
 #undef WITH_PHP
-
-/* Optional va_copy() implementation activation */
-#ifndef HAVE_VA_COPY
-#define va_copy(d, s) __VA_COPY_USE(d, s)
-#endif
-
-
-/* Define to id of used va_copy() implementation */
-#undef __VA_COPY_USE

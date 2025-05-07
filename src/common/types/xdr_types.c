@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "../../../../../src/common/types/xdr_types.h"
+#include "./xdr_types.h"
 #ifdef BROKEN_DARWIN_RPCGEN
 
 bool_t xdr_uint32_t (XDR* x, uint32_t* ii) {return xdr_u_int32_t(x,ii);}

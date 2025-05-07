@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "../../../../../src/common/authr_common/authr_args.h"
+#include "./authr_args.h"
 
 bool_t
 xdr_lwfs_create_container_args (XDR *xdrs, lwfs_create_container_args *objp)

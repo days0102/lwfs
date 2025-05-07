@@ -26,7 +26,7 @@ trace_ex1_LDADD = -llwfs_server
 if HAVE_PABLO
 
 # Get rules for converting and parsing trace files
-include $(top_srcdir)/scripts/trace/trace-rules.mk
+M_CPPFLAGS $(top_srcdir)/scripts/trace/trace-rules.mk
 
 TESTS = trace_test
 
