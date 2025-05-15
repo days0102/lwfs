@@ -84,6 +84,7 @@ int fuse_callbacks_init(
 	memset(&txn, 0, sizeof(lwfs_txn));
 
 	printf("%d %d",txn.journal.cid, txn.journal.cid);
+	// lwfs_remove_container_sync(&authr_svc, &txn, LWFS_CID_ANY,&create_cid_cap);
 	rc = lwfs_create_container_sync(&authr_svc, 
 			&txn, LWFS_CID_ANY, 
 			&create_cid_cap, &modacl_cap);
@@ -116,7 +117,7 @@ int fuse_callbacks_init(
 	// 	return rc; 
 	// }
 	/* create the acls */
-	rc = lwfs_create_acl_sync(authr_svc, &txn, cid, opcodes, &uid_array, &modacl_cap);
+	rc = lwfs_create_acl_sync(&authr_svc, &txn, cid, opcodes, &uid_array, &modacl_cap);
 	if (rc != LWFS_OK) {
 		log_error(ss_debug_level, "unable to create write acl: %s",
 				lwfs_err_str(rc));
@@ -130,7 +131,7 @@ int fuse_callbacks_init(
 	// 		lwfs_err_str(rc));
 	// 	return rc; 
 	// }
-	rc = lwfs_get_cap_sync(authr_svc, cid, opcodes, cred, cap);
+	rc = lwfs_get_cap_sync(&authr_svc, cid, opcodes, &cred, &modacl_cap);
 	if (rc != LWFS_OK) {
 		log_error(ss_debug_level, "unable to call getcaps: %s",
 				lwfs_err_str(rc));
@@ -328,6 +329,14 @@ int lwfs_fuse_getattr(const char *path, struct stat *stbuf)
 	// 	res = -errno;
 	// 	goto cleanup;
 	// }
+	res=lwfs_getattr_sync(&txn, obj, NULL, &cap, &attr);
+	if (res != LWFS_OK) {
+		log_warn(fuse_debug_level, "unable to get attributes: %s",
+				lwfs_err_str(res));
+		errno = EIO;
+		res = -errno;
+		goto cleanup;
+	}
 
 	if (logging_debug(fuse_debug_level)) {
 		// fprint_lwfs_obj_attr(stdout, "attr", "DEBUG", &attr);

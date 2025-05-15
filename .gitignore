@@ -74,3 +74,4 @@ naming.db*
 Makefile
 Makefile.in
 Makefile.am
+fuse-lwfs/fuse-lwfs
