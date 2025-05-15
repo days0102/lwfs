@@ -16,6 +16,18 @@
         "xdr_types.h": "c",
         "fuse-callbacks.h": "c",
         "logger_opts.h": "c",
-        "rpc_client.h": "c"
+        "rpc_client.h": "c",
+        "naming_client.h": "c",
+        "storage_client.h": "c",
+        "authr_client.h": "c",
+        "array": "c",
+        "bitset": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "span": "c",
+        "utility": "c",
+        "format": "c",
+        "functional": "c",
+        "chrono": "c"
     }
 }

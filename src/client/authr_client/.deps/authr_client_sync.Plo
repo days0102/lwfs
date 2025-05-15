@@ -24,9 +24,6 @@ authr_client_sync.lo: authr_client_sync.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /usr/include/x86_64-linux-gnu/bits/stdio2-decl.h \
- /usr/include/x86_64-linux-gnu/bits/stdio.h \
- /usr/include/x86_64-linux-gnu/bits/stdio2.h \
  ../../../src/common/types/xdr_types.h /usr/include/rpc/rpc.h \
  /usr/include/rpc/types.h /usr/include/x86_64-linux-gnu/sys/types.h \
  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
@@ -44,8 +41,6 @@ authr_client_sync.lo: authr_client_sync.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
- /usr/include/x86_64-linux-gnu/bits/select2.h \
- /usr/include/x86_64-linux-gnu/bits/select-decl.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -85,8 +80,6 @@ authr_client_sync.lo: authr_client_sync.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
- /usr/include/x86_64-linux-gnu/bits/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/unistd-decl.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
  /usr/include/linux/close_range.h \
  /usr/include/x86_64-linux-gnu/bits/ss_flags.h \
@@ -100,11 +93,8 @@ authr_client_sync.lo: authr_client_sync.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/alloca.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib.h /usr/include/netconfig.h \
- /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/netconfig.h /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/x86_64-linux-gnu/bits/socket.h \
  /usr/include/x86_64-linux-gnu/bits/socket_type.h \
@@ -120,21 +110,19 @@ authr_client_sync.lo: authr_client_sync.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/asm/sockios.h \
  /usr/include/asm-generic/sockios.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
- /usr/include/x86_64-linux-gnu/bits/socket2.h /usr/include/netinet/in.h \
+ /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/rpc/xdr.h \
  /usr/include/rpc/auth.h /usr/include/rpc/clnt_stat.h \
  /usr/include/rpc/clnt.h /usr/include/x86_64-linux-gnu/sys/un.h \
- /usr/include/string.h /usr/include/strings.h \
- /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
- /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /usr/include/rpc/clnt_soc.h /usr/include/rpc/rpc_msg.h \
- /usr/include/rpc/auth_unix.h /usr/include/rpc/auth_des.h \
- /usr/include/rpc/svc_auth.h /usr/include/rpc/svc.h \
- /usr/include/rpc/svc_soc.h /usr/include/rpc/pmap_clnt.h \
- /usr/include/rpc/pmap_prot.h /usr/include/rpc/rpcb_clnt.h \
- /usr/include/rpc/rpcb_prot.h /usr/include/rpc/svc_mt.h \
- /usr/include/rpc/rpcent.h ../../../src/common/types/lwfs_int.h \
+ /usr/include/string.h /usr/include/strings.h /usr/include/rpc/clnt_soc.h \
+ /usr/include/rpc/rpc_msg.h /usr/include/rpc/auth_unix.h \
+ /usr/include/rpc/auth_des.h /usr/include/rpc/svc_auth.h \
+ /usr/include/rpc/svc.h /usr/include/rpc/svc_soc.h \
+ /usr/include/rpc/pmap_clnt.h /usr/include/rpc/pmap_prot.h \
+ /usr/include/rpc/rpcb_clnt.h /usr/include/rpc/rpcb_prot.h \
+ /usr/include/rpc/svc_mt.h /usr/include/rpc/rpcent.h \
+ ../../../src/common/types/lwfs_int.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
@@ -224,12 +212,6 @@ authr_client.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdio2-decl.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdio.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdio2.h:
-
 ../../../src/common/types/xdr_types.h:
 
 /usr/include/rpc/rpc.h:
@@ -269,10 +251,6 @@ authr_client.h:
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/x86_64-linux-gnu/bits/select2.h:
-
-/usr/include/x86_64-linux-gnu/bits/select-decl.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
@@ -358,10 +336,6 @@ authr_client.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
-/usr/include/x86_64-linux-gnu/bits/unistd.h:
-
-/usr/include/x86_64-linux-gnu/bits/unistd-decl.h:
-
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
 /usr/include/linux/close_range.h:
@@ -394,11 +368,7 @@ authr_client.h:
 
 /usr/include/alloca.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
-
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdlib.h:
 
 /usr/include/netconfig.h:
 
@@ -436,8 +406,6 @@ authr_client.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
 
-/usr/include/x86_64-linux-gnu/bits/socket2.h:
-
 /usr/include/netinet/in.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
@@ -457,10 +425,6 @@ authr_client.h:
 /usr/include/string.h:
 
 /usr/include/strings.h:
-
-/usr/include/x86_64-linux-gnu/bits/strings_fortified.h:
-
-/usr/include/x86_64-linux-gnu/bits/string_fortified.h:
 
 /usr/include/rpc/clnt_soc.h:
 

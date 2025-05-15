@@ -39,6 +39,7 @@ int lwfs_create_container_sync(
     int rc = LWFS_OK;
     int rc2 = LWFS_OK;
     lwfs_request req; 
+	printf("%d %d",txn_id->journal.cid, txn_id->journal.cid);
 
     /* create a container (returns a cap to modify acls) */
     rc = lwfs_create_container(authr_svc, txn_id, cid, cap, result, &req); 

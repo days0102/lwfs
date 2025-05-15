@@ -21696,8 +21696,8 @@ printf "%s\n" "$as_me: WARNING: libnsl not found, continuing without it" >&2;}
 
 fi
 
-CFLAGS="$CFLAGS -I/usr/local/BerkeleyDB.4.2/include -L/usr/local/BerkeleyDB.4.2/lib"
-CPPFLAGS="$CPPFLAGS -I/usr/local/BerkeleyDB.4.2/include -L/usr/local/BerkeleyDB.4.2/lib"
+CFLAGS="$CFLAGS -O0 -g -I/usr/local/BerkeleyDB.4.2/include -L/usr/local/BerkeleyDB.4.2/lib"
+CPPFLAGS="$CPPFLAGS -O0 -g -I/usr/local/BerkeleyDB.4.2/include -L/usr/local/BerkeleyDB.4.2/lib"
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure

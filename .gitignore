@@ -68,3 +68,9 @@ src/support/hashtable/mt_hashtable_tester
 src/support/logger/logger_test
 src/support/ptl_uuid/ptl_uuid
 src/support/threadpool/thread_pool_server
+
+
+naming.db*
+Makefile
+Makefile.in
+Makefile.am

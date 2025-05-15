@@ -297,8 +297,8 @@ AC_CHECK_LIB(nsl, gethostbyname, [
 ], [
   AC_MSG_WARN([libnsl not found, continuing without it])
 ])
-CFLAGS="$CFLAGS -I/usr/local/BerkeleyDB.4.2/include -L/usr/local/BerkeleyDB.4.2/lib"
-CPPFLAGS="$CPPFLAGS -I/usr/local/BerkeleyDB.4.2/include -L/usr/local/BerkeleyDB.4.2/lib"
+CFLAGS="$CFLAGS -O0 -g -I/usr/local/BerkeleyDB.4.2/include -L/usr/local/BerkeleyDB.4.2/lib"
+CPPFLAGS="$CPPFLAGS -O0 -g -I/usr/local/BerkeleyDB.4.2/include -L/usr/local/BerkeleyDB.4.2/lib"
 AC_OUTPUT
 
 
