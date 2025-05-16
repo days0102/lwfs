@@ -370,28 +370,104 @@ static int parse_fuse_args(
 }
 
 
+
+
+static const char *hello_str = "Hello World!\n";
+static const char *hello_path = "/hello";
+
+static int hello_getattr(const char *path, struct stat *stbuf)
+{
+    int res = 0;
+
+
+    memset(stbuf, 0, sizeof(struct stat));
+    if(strcmp(path, "/") == 0) {
+        stbuf->st_mode = S_IFDIR | 0755;
+        stbuf->st_nlink = 2;
+    }
+    else if(strcmp(path, hello_path) == 0) {
+        stbuf->st_mode = S_IFREG | 0444;
+        stbuf->st_nlink = 1;
+        stbuf->st_size = strlen(hello_str);
+    }
+    else
+        res = -ENOENT;
+
+    return res;
+}
+
+static int hello_getdir(const char *path, fuse_dirh_t h, fuse_dirfil_t filler)
+{
+    if(strcmp(path, "/") != 0)
+        return -ENOENT;
+
+    filler(h, ".", 0,0);
+    filler(h, "..", 0,0);
+    filler(h, hello_path + 1, 0,0);
+
+    return 0;
+}
+
+static int hello_open(const char *path, struct fuse_file_info *fi)
+{
+    if(strcmp(path, hello_path) != 0)
+        return -ENOENT;
+
+    if((fi->flags & 3) != O_RDONLY)
+        return -EACCES;
+
+    return 0;
+}
+
+static int hello_read(const char *path, char *buf, size_t size, off_t offset,
+                      struct fuse_file_info *fi)
+{
+    size_t len;
+    (void) fi;
+    if(strcmp(path, hello_path) != 0)
+        return -ENOENT;
+
+    len = strlen(hello_str);
+    if (offset < len) {
+        if (offset + size > len)
+            size = len - offset;
+        memcpy(buf, hello_str + offset, size);
+    } else
+        size = 0;
+
+    return size;
+}
+
+
+
+
 /* initialize the fuse operation callbacks */
 static struct fuse_operations lwfs_fuse_oper = {
+	//     .getattr	= hello_getattr,
+    // .getdir	= hello_getdir,
+    // .open	= hello_open,
+    // .read	= hello_read,
+
     .getattr	= lwfs_fuse_getattr,
-    .readlink	= lwfs_fuse_readlink,
-    .getdir	= lwfs_fuse_getdir,
-    .mknod	= lwfs_fuse_mknod,
-    .mkdir	= lwfs_fuse_mkdir,
-    .symlink	= lwfs_fuse_symlink,
-    .unlink	= lwfs_fuse_unlink,
-    .rmdir	= lwfs_fuse_rmdir,
-    .rename	= lwfs_fuse_rename,
-    .link	= lwfs_fuse_link,
-    .chmod	= lwfs_fuse_chmod,
-    .chown	= lwfs_fuse_chown,
-    .truncate	= lwfs_fuse_truncate,
-    .utime	= lwfs_fuse_utime,
-    .open	= lwfs_fuse_open,
-    .read	= lwfs_fuse_read,
-    .write	= lwfs_fuse_write,
-    .statfs	= lwfs_fuse_statfs,
-    .release	= lwfs_fuse_release,
-    .fsync	= lwfs_fuse_fsync,
+    // .readlink	= lwfs_fuse_readlink,
+    // .getdir	= lwfs_fuse_getdir,
+    // .mknod	= lwfs_fuse_mknod,
+    // .mkdir	= lwfs_fuse_mkdir,
+    // .symlink	= lwfs_fuse_symlink,
+    // .unlink	= lwfs_fuse_unlink,
+    // .rmdir	= lwfs_fuse_rmdir,
+    // .rename	= lwfs_fuse_rename,
+    // .link	= lwfs_fuse_link,
+    // .chmod	= lwfs_fuse_chmod,
+    // .chown	= lwfs_fuse_chown,
+    // .truncate	= lwfs_fuse_truncate,
+    // .utime	= lwfs_fuse_utime,
+    // .open	= lwfs_fuse_open,
+    // .read	= lwfs_fuse_read,
+    // .write	= lwfs_fuse_write,
+    // .statfs	= lwfs_fuse_statfs,
+    // .release	= lwfs_fuse_release,
+    // .fsync	= lwfs_fuse_fsync,
 #ifdef HAVE_SETXATTR
     .setxattr	= lwfs_fuse_setxattr,
     .getxattr	= lwfs_fuse_getxattr,
@@ -472,7 +548,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* set fuse_debug_level */
-	//fuse_call_debug_level = LOG_DEBUG; 
+	fuse_call_debug_level = LOG_DEBUG; 
 
 	/* initialize RPC */
 	// lwfs_rpc_init(PTL_PID_ANY);
@@ -505,6 +581,7 @@ int main(int argc, char *argv[])
 				lwfs_err_str(rc));
 		return rc; 
 	}
+	// fprint_lwfs_service(stdout, "authr_svc","WARN",&authr_svc);
 
 
 	/* if the user didn't specify a nid for the naming server, assume one */

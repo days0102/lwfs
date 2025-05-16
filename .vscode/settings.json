@@ -28,6 +28,7 @@
         "utility": "c",
         "format": "c",
         "functional": "c",
-        "chrono": "c"
+        "chrono": "c",
+        "cstdlib": "c"
     }
 }

@@ -414,6 +414,11 @@ int lwfs_getattr_sync(
 	int rc2 = LWFS_OK; 
 	lwfs_request req; 
 
+	log_warn(ss_debug_level, "txn_id point: %p", txn_id);
+	log_warn(ss_debug_level, "obj point: %p", obj);
+	log_warn(ss_debug_level, "name point: %p", name);
+	log_warn(ss_debug_level, "cap point: %p", cap);
+	log_warn(ss_debug_level, "attr point: %p", &attr);
 	rc = lwfs_getattr(txn_id, obj, name, cap, attr, &req);
 	if (rc != LWFS_OK) {
 		log_error(ss_debug_level, "failed async method: %s",
@@ -545,6 +550,10 @@ int lwfs_stat_sync(
 	int rc2 = LWFS_OK; 
 	lwfs_request req; 
 
+	log_warn(ss_debug_level, "txn_id point: %p", txn_id);
+	log_warn(ss_debug_level, "obj point: %p", obj);
+	log_warn(ss_debug_level, "cap point: %p", cap);
+	log_warn(ss_debug_level, "res point: %p", res);
 	rc = lwfs_stat(txn_id, obj, cap, res, &req);
 	if (rc != LWFS_OK) {
 		log_error(ss_debug_level, "failed async method: %s",

@@ -72,6 +72,6 @@ src/support/threadpool/thread_pool_server
 
 naming.db*
 Makefile
-Makefile.in
-Makefile.am
+# Makefile.in
+# Makefile.am
 fuse-lwfs/fuse-lwfs

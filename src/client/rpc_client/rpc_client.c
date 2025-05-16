@@ -868,6 +868,14 @@ static int encode_args(
 	/* initialize the args_addr */
 	memset(&header->args_addr, 0, sizeof(lwfs_rma)); 
 
+	fprint_lwfs_service(stdout, "svc","DEBUG", svc);
+	log_warn(rpc_debug_level, "args point: %p", args);
+	log_warn(rpc_debug_level, "short_req_buf point: %p", short_req_buf);
+	log_warn(rpc_debug_level, "short_req_size point: %p", &short_req_size);
+	log_warn(rpc_debug_level, "header point: %p", header);
+	log_warn(rpc_debug_level, "request point: %p", request);
+
+
 	if (args == NULL) {
 		header->fetch_args = FALSE; 
 		header->args_addr.len = 0;

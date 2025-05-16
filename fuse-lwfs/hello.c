@@ -1,4 +1,12 @@
 /*
+ * @Author: Outsider
+ * @Date: 2025-05-10 20:24:20
+ * @LastEditors: Outsider
+ * @LastEditTime: 2025-05-15 21:23:37
+ * @Description: In User Settings Edit
+ * @FilePath: /lwfs/fuse-lwfs/hello.c
+ */
+/*
     FUSE: Filesystem in Userspace
     Copyright (C) 2001-2005  Miklos Szeredi <miklos@szeredi.hu>
 
@@ -40,9 +48,9 @@ static int hello_getdir(const char *path, fuse_dirh_t h, fuse_dirfil_t filler)
     if(strcmp(path, "/") != 0)
         return -ENOENT;
 
-    filler(h, ".", 0, 0);
-    filler(h, "..", 0, 0);
-    filler(h, hello_path + 1, 0, 0);
+    filler(h, ".", 0);
+    filler(h, "..", 0);
+    filler(h, hello_path + 1, 0);
 
     return 0;
 }

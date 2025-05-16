@@ -138,6 +138,13 @@ int fuse_callbacks_init(
 		return rc;
 	}
 
+	/* initialize the root directory pointer */
+	memset(&NAMING_ROOT, 0, sizeof(lwfs_obj));
+	strncpy(NAMING_ROOT.name, "/", LWFS_NAME_LEN); 
+	memcpy(&NAMING_ROOT.entry_obj.svc, &naming_svc, sizeof(lwfs_service));
+	NAMING_ROOT.entry_obj.type = LWFS_DIR_ENTRY; 
+	// NAMING_ROOT.entry_obj.oid[0] = 1; 
+
 	return rc; 
 }
 
@@ -250,6 +257,16 @@ static int traverse_path(
 	// 			lwfs_err_str(rc));
 	// 	goto cleanup; 
 	// }
+	rc = lwfs_lookup_sync(&naming_svc, &txn, &parent_ent, name, 
+			LWFS_LOCK_NULL, &modacl_cap, result);
+	if (rc != LWFS_OK) {
+		errno = ENOENT; 
+		rc = -ENOENT; 
+		log_warn(fuse_debug_level, "unable to lookup entry: %s",
+				lwfs_err_str(rc));
+		goto cleanup; 
+	}
+	fprint_lwfs_ns_entry(stdout,path, "DEBUG", &result);
 
 cleanup:
 	log_debug(fuse_call_debug_level, "freeing parent_path");
@@ -329,7 +346,12 @@ int lwfs_fuse_getattr(const char *path, struct stat *stbuf)
 	// 	res = -errno;
 	// 	goto cleanup;
 	// }
-	res=lwfs_getattr_sync(&txn, obj, NULL, &cap, &attr);
+	log_warn(fuse_debug_level, "txn point: %p", &txn);
+	log_warn(fuse_debug_level, "obj point: %p", obj);
+	log_warn(fuse_debug_level, "path point: %p", path);
+	log_warn(fuse_debug_level, "modacl_cap point: %p", &modacl_cap);
+	log_warn(fuse_debug_level, "attr point: %p", &attr);
+	res=lwfs_stat_sync(&txn, obj, &modacl_cap, &attr);
 	if (res != LWFS_OK) {
 		log_warn(fuse_debug_level, "unable to get attributes: %s",
 				lwfs_err_str(res));
