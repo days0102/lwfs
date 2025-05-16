@@ -17,4 +17,63 @@ test:
 	echo DIRS = $(DIRS)
 	echo SUBDIRS = $(SUBDIRS)
 
+cp:
+	@mkdir -p fuse-lwfs/.libs
+	@mkdir -p fuse-lwfs/.bins
+	@echo "Checking library files..."
+	@if [ ! -f "src/client/.libs/liblwfs_client.so.0.0.0" ]; then \
+		echo "Error: liblwfs_client.so.0.0.0 not found"; \
+		exit 1; \
+	fi
+	@cp -v src/client/.libs/liblwfs_client.so.0.0.0 fuse-lwfs/.libs/
+	@cd fuse-lwfs/.libs && \
+		ln -sf liblwfs_client.so.0.0.0 liblwfs_client.so && \
+		ln -sf liblwfs_client.so.0.0.0 liblwfs_client.so.0
+
+	@if [ ! -f "src/client/.libs/liblwfs_client.a" ]; then \
+		echo "Error: liblwfs_client.a not found"; \
+		exit 1; \
+	fi
+	@cp -v src/client/.libs/liblwfs_client.a fuse-lwfs/.libs/
+
+	@if [ ! -f "src/server/.libs/liblwfs_server.so.0.0.0" ]; then \
+		echo "Error: liblwfs_server.so.0.0.0 not found"; \
+		exit 1; \
+	fi
+	@cp -v src/server/.libs/liblwfs_server.so.0.0.0 fuse-lwfs/.libs/
+	@cd fuse-lwfs/.libs && \
+		ln -sf liblwfs_server.so.0.0.0 liblwfs_server.so && \
+		ln -sf liblwfs_server.so.0.0.0 liblwfs_server.so.0
+
+	@if [ ! -f "src/server/.libs/liblwfs_server.a" ]; then \
+		echo "Error: liblwfs_server.a not found"; \
+		exit 1; \
+	fi
+	@cp -v src/server/.libs/liblwfs_server.a fuse-lwfs/.libs/
+
+	@if [ ! -f "src/common/.libs/libcommon.a" ]; then \
+		echo "Error: libcommon.a not found"; \
+		exit 1; \
+	fi
+	@cp -v src/common/.libs/libcommon.a fuse-lwfs/.libs/
+
+	@if [ ! -f "src/server/naming_server/lwfs-naming-server" ]; then \
+		echo "Error: lwfs-naming-server not found"; \
+		exit 1; \
+	fi
+	@cp -v src/server/naming_server/lwfs-naming-server fuse-lwfs/.bins/
+
+	@if [ ! -f "src/server/authr_server/lwfs-authr" ]; then \
+		echo "Error: lwfs-authr not found"; \
+		exit 1; \
+	fi
+	@cp -v src/server/authr_server/lwfs-authr fuse-lwfs/.bins/
+
+	@if [ ! -f "src/server/storage_server/lwfs-ss" ]; then \
+		echo "Error: lwfs-ss not found"; \
+		exit 1; \
+	fi
+	@cp -v src/server/storage_server/lwfs-ss fuse-lwfs/.bins/
+
+
 CLEANFILES = *~
