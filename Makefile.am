@@ -57,23 +57,4 @@ cp:
 	fi
 	@cp -v src/common/.libs/libcommon.a fuse/.libs/
 
-	@if [ ! -f "src/server/naming_server/lwfs-naming-server" ]; then \
-		echo "Error: lwfs-naming-server not found"; \
-		exit 1; \
-	fi
-	@cp -v src/server/naming_server/lwfs-naming-server fuse/.bins/
-
-	@if [ ! -f "src/server/authr_server/lwfs-authr" ]; then \
-		echo "Error: lwfs-authr not found"; \
-		exit 1; \
-	fi
-	@cp -v src/server/authr_server/lwfs-authr fuse/.bins/
-
-	@if [ ! -f "src/server/storage_server/lwfs-ss" ]; then \
-		echo "Error: lwfs-ss not found"; \
-		exit 1; \
-	fi
-	@cp -v src/server/storage_server/lwfs-ss fuse/.bins/
-
-
 CLEANFILES = *~

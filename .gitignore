@@ -77,3 +77,12 @@ Makefile
 fuse/fuse-lwfs
 fuse/.bins
 fuse/.libs
+fuse/ss-root
+fuse/authr.db
+fuse/naming.db
+fuse/naming.db.2nd
+fuse/naming.db.3rd
+fuse/naming.db.inode
+fuse/ss-attr.db
+fuse/ss-attr.db.2nd
+!fuse/Makefile
